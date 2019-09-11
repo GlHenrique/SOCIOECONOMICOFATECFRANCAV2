@@ -1,0 +1,21 @@
+<ui-toolbar class="fixed flat elevate-on-scroll primary elevate-on-s960" id="app-header">
+  <button (click)="menuOpen = true" class="ui-button flat icon" uiRipple>
+    <i class="material-icons">menu</i>
+  </button>
+  <span class="title">{{title}}</span>
+</ui-toolbar>
+
+<ui-nav-drawer class="left nav-drawer" [(open)]="menuOpen">
+  <div class="button-container">
+    <button class="ui-button flat icon closeMenu" uiRipple (click)="toggleMenu()"
+            [ngClass]="{'rotate-s180': !menuOpen}">
+      <i class="material-icons">arrow_back</i>
+    </button>
+  </div>
+  <div *ngIf="menuOpen">
+    <ui-list [list]="list" [item-model]="itemModel">
+    </ui-list>
+  </div>
+</ui-nav-drawer>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,66 @@
+<div *ngIf="upload" class="ui-s480 break-on-s480">
+  <ui-card>
+    <ui-card-content>
+      <div class="esqueleto">
+        <div class="corpo-esqueleto">
+          <img alt="" id="icon-upload" src="/assets/upload1.svg">
+        </div>
+        <div class="corpo-esqueleto">
+          <div class="messages">
+            <h3>Arraste e solte o arquivo aqui.</h3>
+          </div>
+        </div>
+        <div class="corpo-esqueleto">
+          <button (click)="submitFile.click()" class="ui-button success">Enviar arquivo</button>
+        </div>
+      </div>
+    </ui-card-content>
+    <input #submitFile hidden type="file" (change)="insertFile($event);Upload()" placeholder="Upload file"
+           accept=".xlsx">
+  </ui-card>
+</div>
+
+<div class="light">
+  <ui-card>
+    <div>
+      <ui-tabs-pages #tabsPages>
+        <div class="page">
+          <ui-card-content>
+            <div class="align">
+              <div style="width: 70%;" *ngIf="graficoGenero">
+                <div>
+                  <div>
+                    <canvas baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ui-card-content>
+          <div class="ui-button-container cover">
+            <button class="ui-button" (click)="tabsPages.pagesGoToPage(2)" uiRipple>Ir para página 2</button>
+          </div>
+        </div>
+        <div class="page">
+          <ui-card-content>
+            Página 2<br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores consequatur
+            ducimus eveniet expedita facilis id inventore mollitia nihil optio praesentium quasi sint sit,
+            sunt veniam vitae voluptatum? Perspiciatis, quam?
+          </ui-card-content>
+          <div class="ui-button-container cover">
+            <button class="ui-button" (click)="tabsPages.pagesGoToPage(1)" uiRipple>Voltar para página 1</button>
+          </div>
+        </div>
+      </ui-tabs-pages>
+    </div>
+  </ui-card>
+</div>
+
+
+
