@@ -13,11 +13,12 @@ import {Label} from 'ng2-charts';
 export class HomeComponent implements OnInit {
 
   upload = true;
+  idade: any;
 
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: {xAxes: [{}], yAxes: [{}]},
+    scales: {xAxes: [{}], yAxes: [{ticks: {beginAtZero: true, suggestedMin: 0}}]},
     plugins: {
       datalabels: {
         anchor: 'end',
@@ -25,11 +26,98 @@ export class HomeComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[];
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
-  public barChartData: ChartDataSets[];
-  private graficoGenero: boolean;
+
+  public cursoLabel: Label[];
+  public cursoChartType: ChartType = 'bar';
+  public cursoChartLegend = true;
+  public cursoChartData: ChartDataSets[];
+  private cursoGrafico: boolean;
+
+
+  public generoChartLabels: Label[];
+  public generoChartType: ChartType = 'bar';
+  public generoChartLegend = true;
+  public generoChartData: ChartDataSets[];
+  private generoGrafico: boolean;
+
+
+  public semestreLabel: Label[];
+  public semestreChartType: ChartType = 'bar';
+  public semestreChartLegend = true;
+  public semestreChartData: ChartDataSets[];
+  private semestreGrafico: boolean;
+
+  public periodoLabel: Label[];
+  public periodoChartType: ChartType = 'bar';
+  public periodoChartLegend = true;
+  public periodoChartData: ChartDataSets[];
+  private periodoGrafico: boolean;
+
+  public estadoCivilLabel: Label[];
+  public estadoCivilChartType: ChartType = 'bar';
+  public estadoCivilChartLegend = true;
+  public estadoCivilChartData: ChartDataSets[];
+  private estadoCivilGrafico: boolean;
+
+  public deficienciaLabel: Label[];
+  public deficienciaChartType: ChartType = 'bar';
+  public deficienciaChartLegend = true;
+  public deficienciaChartData: ChartDataSets[];
+  private deficienciaGrafico: boolean;
+
+  public filhosLabel: Label[];
+  public filhosChartType: ChartType = 'bar';
+  public filhosChartLegend = true;
+  public filhosChartData: ChartDataSets[];
+  private filhosGrafico: boolean;
+
+  public municipioLabel: Label[];
+  public municipioChartType: ChartType = 'bar';
+  public municipioChartLegend = true;
+  public municipioChartData: ChartDataSets[];
+  private municipioGrafico: boolean;
+
+  public locomocaoLabel: Label[];
+  public locomocaoChartType: ChartType = 'bar';
+  public locomocaoChartLegend = true;
+  public locomocaoChartData: ChartDataSets[];
+  private locomocaoGrafico: boolean;
+
+  public domicilioLabel: Label[];
+  public domicilioChartType: ChartType = 'bar';
+  public domicilioChartLegend = true;
+  public domicilioChartData: ChartDataSets[];
+  private domicilioGrafico: boolean;
+
+  public tempoResidenciaLabel: Label[];
+  public tempoResidenciaChartType: ChartType = 'bar';
+  public tempoResidenciaChartLegend = true;
+  public tempoResidenciaChartData: ChartDataSets[];
+  private tempoResidenciaGrafico: boolean;
+
+  public quemMoraLabel: Label[];
+  public quemMoraChartType: ChartType = 'bar';
+  public quemMoraChartLegend = true;
+  public quemMoraChartData: ChartDataSets[];
+  private quemMoraGrafico: boolean;
+
+  public quantasPessoasMoramLabel: Label[];
+  public quantasPessoasMoramChartType: ChartType = 'bar';
+  public quantasPessoasMoramChartLegend = true;
+  public quantasPessoasMoramChartData: ChartDataSets[];
+  private quantasPessoasMoramGrafico: boolean;
+
+  public quantasPessoasExercemLabel: Label[];
+  public quantasPessoasExercemChartType: ChartType = 'bar';
+  public quantasPessoasExercemChartLegend = true;
+  public quantasPessoasExercemChartData: ChartDataSets[];
+  private quantasPessoasExercemGrafico: boolean;
+
+  public possuiInternetLabel: Label[];
+  public possuiInternetChartType: ChartType = 'bar';
+  public possuiInternetChartLegend = true;
+  public possuiInternetChartData: ChartDataSets[];
+  private possuiInternetGrafico: boolean;
 
   constructor() {
   }
@@ -47,29 +135,8 @@ export class HomeComponent implements OnInit {
   semestre: any;
   generoM = 0;
   generoF = 0;
-  dataNacimento: any;
-  estadoCivil: any;
+  dataNascimento: any;
   deficiencia = 0;
-  filhos: any;
-  municipio: any;
-  transporte: any;
-  domicilio: any;
-  tempoResidencia: any;
-  comQuem: any;
-  quantdataNacimentoFamilia: any;
-  quantdataNacimentoDinheiro: any;
-  internet: any;
-  meiosInternet: any;
-  somaRenda: any;
-  escolaridadeMae: any;
-  escolaridadePai: any;
-  areaTrabalho: any;
-  periodoTrabalho: any;
-  ondeEstudou: any;
-  conhecimentoInformatica: any;
-  quaisAplicativos: any;
-  idioma: any;
-  estudouFatec: any;
   periodoMatutino = 0;
   periodoNoturno = 0;
   ciclo1 = 0;
@@ -80,10 +147,12 @@ export class HomeComponent implements OnInit {
   ciclo6 = 0;
   datasDeNascimento = [];
   today = new Date().getFullYear();
-  ate18 = 0;
-  ate30 = 0;
-  acima30 = 0;
-  idade: {};
+  ate21 = 0;
+  ate28 = 0;
+  ate35 = 0;
+  ate50 = 0;
+  acima50 = 0;
+  idades: {};
   solteiro = 0;
   casado = 0;
   separado = 0;
@@ -131,12 +200,17 @@ export class HomeComponent implements OnInit {
   comEsposo = 0;
   emAbrigo = 0;
   umaPessoa = 0;
+  duasPessoas = 0;
   tresPessoas = 0;
   quatroPessoas = 0;
   cincoPessoas = 0;
+  seisPessoas = 0;
   umaPessoaExercem = 0;
+  duasPessoaExercem = 0;
   tresPessoasExercem = 0;
+  quatroPessoasExercem = 0;
   cincoPessoasExercem = 0;
+  seisPessoasExercem = 0;
   tenhoInternet = 0;
   naoTenhoInternet = 0;
   meioSalario = 0;
@@ -184,6 +258,11 @@ export class HomeComponent implements OnInit {
   faloInglesEEspanhol = 0;
   jaEstudei = 0;
   naoEstudei = 0;
+  celular = 0;
+  notebook = 0;
+  computador = 0;
+  tablet = 0;
+
 
   ngOnInit() {
 
@@ -208,8 +287,8 @@ export class HomeComponent implements OnInit {
         const firstSheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[firstSheetName];
         this.info = XLSX.utils.sheet_to_json(worksheet, {raw: true});
-        console.log(this.info);
-
+        // console.log(this.info);
+        //
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.info.length; i++) {
 
@@ -263,22 +342,11 @@ export class HomeComponent implements OnInit {
               this.generoF++;
               break;
           }
-          // this.dataNacimento = new Date(this.info[i]['Data de Nascimento'])
-          // this.datasDeNascimento.push(this.dataNacimento.getFullYear()),
-          //   // console.log(this.today);
-          //   //console.log(this.datasDeNascimento);
-          // () => {
-          //   this.idade = this.today - this.datasDeNascimento[i];
-          //   switch (this.idade) {
-          //     case  this.idade <= 18:
-          //       this.ate18++
-          //       break;
-          //     case this.idade > 18 && this.idade <= 30:
-          //       this.ate30++
-          //     default:
-          //       this.acima30++;
-          //   }
-          // }
+          this.dataNascimento = new Date(this.info[i]['Data de Nascimento']);
+          this.dataNascimento = this.dataNascimento.getFullYear();
+          this.datasDeNascimento.push(this.dataNascimento);
+          // console.log(this.dataNascimento);
+
           switch (this.info[i]['Estado Civil']) {
             case 'Solteiro':
               this.solteiro++;
@@ -450,7 +518,7 @@ export class HomeComponent implements OnInit {
               this.umaPessoa++;
               break;
             case '2':
-              this.umaPessoa++;
+              this.duasPessoas++;
               break;
             case '3':
               this.tresPessoas++;
@@ -461,6 +529,9 @@ export class HomeComponent implements OnInit {
             case '5':
               this.cincoPessoas++;
               break;
+              case '6 ou mais':
+              this.seisPessoas++;
+              break;
           }
 
           switch (this.info[i]['Quantas pessoas de sua família, incluindo você, exercem atividade remunerada?']) {
@@ -468,27 +539,42 @@ export class HomeComponent implements OnInit {
               this.umaPessoaExercem++;
               break;
             case '2':
-              this.umaPessoaExercem++;
+              this.duasPessoaExercem++;
               break;
             case '3':
               this.tresPessoasExercem++;
               break;
             case '4':
-              this.tresPessoasExercem++;
+              this.quatroPessoasExercem++;
               break;
             case '5':
               this.cincoPessoasExercem++;
               break;
+              case '6 ou mais':
+              this.seisPessoasExercem++;
+              break;
 
           }
 
-          switch (this.info[i]['Você possui acesso a internet em sua residencia']) {
+          switch (this.info[i]['Você possui acesso a internet em sua residencia?']) {
             case 'Sim':
               this.tenhoInternet++;
               break;
             case 'Não':
               this.naoTenhoInternet++;
               break;
+          }
+          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Celular') !== -1) {
+            this.celular++;
+          }
+          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Notebook') !== -1) {
+            this.notebook++;
+          }
+          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Computador') !== -1) {
+            this.computador++;
+          }
+          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Tablet') !== -1) {
+            this.tablet++;
           }
 
           switch (this.info[i]['Qual é a soma da renda familiar, das pessoas de sua residência?']) {
@@ -657,17 +743,182 @@ export class HomeComponent implements OnInit {
               break;
           }
           this.upload = false;
-          this.barChartLabels = ['Gênero'];
-          this.barChartData = [
-            {data: [this.generoF], label: 'Feminino'},
-            {data: [this.generoM], label: 'Masculino'}
-          ];
-          this.graficoGenero = true;
 
 
         }
+        this.cursoLabel = ['Curso'];
+        this.cursoChartData = [
+          {data: [this.cursoADS], label: 'ADS'},
+          {data: [this.cursoGPI], label: 'GPI'},
+          {data: [this.cursoGRH], label: 'GRH'}
+        ];
+        this.cursoGrafico = true;
+
+        this.periodoLabel = ['Periodo'];
+        this.periodoChartData = [
+          {data: [this.periodoMatutino], label: 'Matutino'},
+          {data: [this.periodoNoturno], label: 'Noturno'}
+        ];
+        this.periodoGrafico = true;
+
+
+        this.generoChartLabels = ['Gênero'];
+        this.generoChartData = [
+          {data: [this.generoF], label: 'Feminino'},
+          {data: [this.generoM], label: 'Masculino'}
+        ];
+        this.generoGrafico = true;
+
+
+        this.semestreLabel = ['Semestre (Ciclo)'];
+        this.semestreChartData = [
+          {data: [this.ciclo1], label: '1º'},
+          {data: [this.ciclo2], label: '2º'},
+          {data: [this.ciclo3], label: '3º'},
+          {data: [this.ciclo4], label: '4º'},
+          {data: [this.ciclo5], label: '5º'},
+          {data: [this.ciclo6], label: '6º'},
+        ];
+        this.semestreGrafico = true;
+
+
+        this.estadoCivilLabel = ['Estado Civil'];
+        this.estadoCivilChartData = [
+          {data: [this.solteiro], label: 'Solteiro'},
+          {data: [this.casado], label: 'Casado'},
+          {data: [this.separado], label: 'Separado'},
+          {
+            data: [this.divorciado], label: 'Divorciado', backgroundColor: 'green',
+            borderColor: 'green', hoverBackgroundColor: 'green', hoverBorderColor: 'green'
+          },
+          {data: [this.viuvo], label: 'Viúvo'},
+          {data: [this.uniaoEstavel], label: 'União Estável'},
+        ];
+        this.estadoCivilGrafico = true;
+
+
+        this.deficienciaLabel = ['Portador de Deficiência?'];
+        this.deficienciaChartData = [
+          {data: [0], label: 'Sim'},
+          {data: [this.deficiencia], label: 'Não'},
+        ];
+        this.deficienciaGrafico = true;
+
+
+        this.filhosLabel = ['Possui filhos?'];
+        this.filhosChartData = [
+          {data: [this.zeroFilhos], label: 'Nenhum'},
+          {data: [this.umFilho], label: '1 filho'},
+          {data: [this.doisFilhos], label: '2 filhos'},
+          {data: [this.tresFilhos], label: '3 filhos'},
+          {data: [this.quatroFilhos], label: '4 filhos'},
+          {data: [this.maisDeQuatroFilhos], label: 'Mais de 4 filhos'},
+        ];
+        this.filhosGrafico = true;
+
+
+        this.municipioLabel = ['Município de Residência'];
+        this.municipioChartData = [
+          {data: [this.franca], label: 'Franca'},
+          {data: [this.cristaisPaulista], label: 'Cristais Paulista'},
+          {data: [this.ibiraci], label: 'Ibiraci'},
+          {data: [this.nuporanga], label: 'Nuporanga'},
+          {data: [this.orlandia], label: 'Orlândia'},
+          {data: [this.patrocinioPaulista], label: 'Patrocínio Paulista'},
+          {data: [this.pedregulho], label: 'Pedregulho'},
+          {data: [this.ribeiraoCorrente], label: 'Ribeirão Corrente'},
+          {data: [this.saoJoseDaBelaVista], label: 'Sao José da Bela Vista'},
+          {data: [this.restinga], label: 'Restinga'},
+        ];
+        this.municipioGrafico = true;
+
+        this.locomocaoLabel = ['Meio de locomoção à faculdade'];
+        this.locomocaoChartData = [
+          {data: [this.aplicativoTransporte], label: 'Aplicativos de transporte'},
+          {data: [this.aPe], label: 'A pé'},
+          {data: [this.bicicleta], label: 'Bicicleta'},
+          {data: [this.carona], label: 'Carona'},
+          {data: [this.carroProprio], label: 'Carro próprio'},
+          {data: [this.motoPropria], label: 'Moto própria'},
+          {data: [this.onibus], label: 'Ônibus'},
+          {data: [this.vanEscolar], label: 'Vã Escolar'}
+        ];
+        this.locomocaoGrafico = true;
+
+
+        this.domicilioLabel = ['Situação de domicílio'];
+        this.domicilioChartData = [
+          {data: [this.alugado], label: 'Alugado'},
+          {data: [this.arrendado], label: 'Arrendado'},
+          {data: [this.cedido], label: 'Cedido'},
+          {data: [this.financiado], label: 'Financiado'},
+          {data: [this.imovelProprio], label: 'Imóvel'}
+        ];
+        this.domicilioGrafico = true;
+
+
+        this.tempoResidenciaLabel = ['Tempo de residência'];
+        this.tempoResidenciaChartData = [
+          {data: [this.menosUmAno], label: 'Menos de um ano'},
+          {data: [this.aproximadamenteUmAno], label: '1 anos'},
+          {data: [this.aproximadamenteDoisAnos], label: '2 anos'},
+          {data: [this.aproximadamenteTresAnos], label: '3 anos'},
+          {data: [this.aproximadamenteQuatroAnos], label: '4 anos'},
+          {data: [this.aproximadamenteCincoAnos], label: '5 anos ou mais'}
+        ];
+        this.tempoResidenciaGrafico = true;
+
+
+        this.quemMoraLabel = ['Com quem mora?'];
+        this.quemMoraChartData = [
+          {data: [this.sozinho], label: 'Sozinho'},
+          {data: [this.comMinhaFamilia], label: 'Com minha família (pais e/ou parentes)'},
+          {data: [this.comFamiliaCompanheiro], label: 'Com a família do(a) esposo(a), ou companheiro(a)'},
+          {data: [this.comEsposo], label: 'Com esposo(a), companheiro(a)'},
+          {data: [this.emAbrigo], label: 'Abrigo ou equivalente'}
+        ];
+        this.quemMoraGrafico = true;
+
+
+        this.quantasPessoasMoramLabel = ['Quantas pessoas compõem seu núcleo familiar, incluindo você?'];
+        this.quantasPessoasMoramChartData = [
+          {data: [this.umaPessoa], label: '1 pessoa'},
+          {data: [this.duasPessoas], label: '2 pessoas'},
+          {data: [this.tresPessoas], label: '3 pessoas'},
+          {data: [this.quatroPessoas], label: '4 pessoas'},
+          {data: [this.cincoPessoas], label: '5 pessoas'},
+          {data: [this.seisPessoas], label: '6 pessoa ou mais'},
+        ];
+        this.quantasPessoasMoramGrafico = true;
+
+
+        this.quantasPessoasExercemLabel = ['Quantas pessoas exercem atividade remunerada, incluindo você?'];
+        this.quantasPessoasExercemChartData = [
+          {data: [this.umaPessoaExercem], label: '1 pessoa'},
+          {data: [this.duasPessoaExercem], label: '2 pessoas'},
+          {data: [this.tresPessoasExercem], label: '3 pessoas'},
+          {data: [this.quatroPessoasExercem], label: '4 pessoas'},
+          {data: [this.cincoPessoasExercem], label: '5 pessoas'},
+          {data: [this.seisPessoasExercem], label: '6 pessoa ou mais'},
+        ];
+        this.quantasPessoasExercemGrafico = true;
+
+
+        this.possuiInternetLabel = ['Você possui acesso a internet em sua residencia?'];
+        this.possuiInternetChartData = [
+          {data: [this.tenhoInternet], label: 'Possui Internet'},
+          {data: [this.naoTenhoInternet], label: 'Não possui internet'}
+        ];
+        this.possuiInternetGrafico = true;
+
       };
+      // tslint:disable-next-line:prefer-for-of
+
       fileReader.readAsArrayBuffer(this.file);
+      console.log(this.datasDeNascimento);
     }
+
+
   }
+
 }
