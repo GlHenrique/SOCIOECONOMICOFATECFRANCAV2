@@ -13,6 +13,7 @@ import {Label} from 'ng2-charts';
 export class HomeComponent implements OnInit {
 
   upload = true;
+  upload1 = false;
   idade: any;
 
   public barChartOptions: ChartOptions = {
@@ -118,6 +119,78 @@ export class HomeComponent implements OnInit {
   public possuiInternetChartLegend = true;
   public possuiInternetChartData: ChartDataSets[];
   private possuiInternetGrafico: boolean;
+
+  public meiosDeInternetLabel: Label[];
+  public meiosDeInternetChartType: ChartType = 'bar';
+  public meiosDeInternetChartLegend = true;
+  public meiosDeInternetChartData: ChartDataSets[];
+  private meiosDeInternetGrafico: boolean;
+
+  public somaRendaLabel: Label[];
+  public somaRendaChartType: ChartType = 'bar';
+  public somaRendaChartLegend = true;
+  public somaRendaChartData: ChartDataSets[];
+  private somaRendaGrafico: boolean;
+
+  public escolaridadeMaeLabel: Label[];
+  public escolaridadeMaeChartType: ChartType = 'bar';
+  public escolaridadeMaeChartLegend = true;
+  public escolaridadeMaeChartData: ChartDataSets[];
+  private escolaridadeMaeGrafico: boolean;
+
+  public escolaridadePaiLabel: Label[];
+  public escolaridadePaiChartType: ChartType = 'bar';
+  public escolaridadePaiChartLegend = true;
+  public escolaridadePaiChartData: ChartDataSets[];
+  private escolaridadePaiGrafico: boolean;
+
+  public areaTrabalhoLabel: Label[];
+  public areaTrabalhoChartType: ChartType = 'bar';
+  public areaTrabalhoChartLegend = true;
+  public areaTrabalhoChartData: ChartDataSets[];
+  private areaTrabalhoGrafico: boolean;
+
+  public periodoTrabalhoLabel: Label[];
+  public periodoTrabalhoChartType: ChartType = 'bar';
+  public periodoTrabalhoChartLegend = true;
+  public periodoTrabalhoChartData: ChartDataSets[];
+  private periodoTrabalhoGrafico: boolean;
+
+  public vidaEscolarLabel: Label[];
+  public vidaEscolarChartType: ChartType = 'bar';
+  public vidaEscolarChartLegend = true;
+  public vidaEscolarChartData: ChartDataSets[];
+  private vidaEscolarGrafico: boolean;
+
+  public conhecimentoInformaticaLabel: Label[];
+  public conhecimentoInformaticaChartType: ChartType = 'bar';
+  public conhecimentoInformaticaChartLegend = true;
+  public conhecimentoInformaticaChartData: ChartDataSets[];
+  private conhecimentoInformaticaGrafico: boolean;
+
+  public aplicativosLabel: Label[];
+  public aplicativosChartType: ChartType = 'bar';
+  public aplicativosChartLegend = true;
+  public aplicativosChartData: ChartDataSets[];
+  private aplicativosGrafico: boolean;
+
+  public idiomasLabel: Label[];
+  public idiomasChartType: ChartType = 'bar';
+  public idiomasChartLegend = true;
+  public idiomasChartData: ChartDataSets[];
+  private idiomasGrafico: boolean;
+
+  public estudeiLabel: Label[];
+  public estudeiChartType: ChartType = 'bar';
+  public estudeiChartLegend = true;
+  public estudeiChartData: ChartDataSets[];
+  private estudeiGrafico: boolean;
+
+  public idadeLabel: Label[];
+  public idadeChartType: ChartType = 'bar';
+  public idadeChartLegend = true;
+  public idadeChartData: ChartDataSets[];
+  private idadeGrafico: boolean;
 
   constructor() {
   }
@@ -255,13 +328,19 @@ export class HomeComponent implements OnInit {
   naoTenhoConhecimentoInformatica = 0;
   faloIngles = 0;
   faloEspanhol = 0;
-  faloInglesEEspanhol = 0;
+  outroIdioma = 0;
   jaEstudei = 0;
   naoEstudei = 0;
   celular = 0;
   notebook = 0;
   computador = 0;
   tablet = 0;
+  outroMeio = 0;
+  excel = 0;
+  windows = 0;
+  word = 0;
+  powerpoint = 0;
+  outroAplicativo = 0;
 
 
   ngOnInit() {
@@ -529,7 +608,7 @@ export class HomeComponent implements OnInit {
             case '5':
               this.cincoPessoas++;
               break;
-              case '6 ou mais':
+            case '6 ou mais':
               this.seisPessoas++;
               break;
           }
@@ -550,7 +629,7 @@ export class HomeComponent implements OnInit {
             case '5':
               this.cincoPessoasExercem++;
               break;
-              case '6 ou mais':
+            case '6 ou mais':
               this.seisPessoasExercem++;
               break;
 
@@ -564,18 +643,20 @@ export class HomeComponent implements OnInit {
               this.naoTenhoInternet++;
               break;
           }
-          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Celular') !== -1) {
-            this.celular++;
-          }
-          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Notebook') !== -1) {
-            this.notebook++;
-          }
-          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Computador') !== -1) {
-            this.computador++;
-          }
-          if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Tablet') !== -1) {
-            this.tablet++;
-          }
+
+          // console.log(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].split(';'));
+          // if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Celular')) {
+          //   this.celular++;
+          // }
+          // if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Notebook') !== -1) {
+          //   this.notebook++;
+          // }
+          // if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Computador') !== -1) {
+          //   this.computador++;
+          // }
+          // if(this.info[i]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Tablet') !== -1) {
+          //   this.tablet++;
+          // }
 
           switch (this.info[i]['Qual é a soma da renda familiar, das pessoas de sua residência?']) {
             case 'Até 1/2 sálario mínimo':
@@ -722,30 +803,108 @@ export class HomeComponent implements OnInit {
               break;
           }
 
-          switch (this.info[i]['Tem conhecimento básico em algum idioma além do Português? Qual(is)?']) {
-            case 'Inglês;':
-              this.faloIngles++;
-              break;
-            case 'Espanhol;':
-              this.faloEspanhol++;
-              break;
-            case 'Inglês; Espanhol':
-              this.faloInglesEEspanhol++;
-              break;
-          }
 
           switch (this.info[i]['Você já estudou na FATEC Franca?']) {
             case 'Sim':
               this.jaEstudei++;
               break;
-            case 'Não':
+            default:
               this.naoEstudei++;
               break;
           }
           this.upload = false;
+          this.upload1 = true;
 
 
         }
+
+        /* BLOCO PARA CAPTURAR IDADE */
+        console.log(this.datasDeNascimento);
+        for (let m = 0; m < this.datasDeNascimento.length; m++) {
+          if ((this.today - this.datasDeNascimento[m]) <= 21) {
+            this.ate21++;
+          }
+        }
+        for (let n = 0; n < this.datasDeNascimento.length; n++) {
+          if ((this.today - this.datasDeNascimento[n]) > 22 && (this.today - this.datasDeNascimento[n]) <= 28) {
+            this.ate28++;
+          }
+        }
+        for (let r = 0; r < this.datasDeNascimento.length; r++) {
+          if ((this.today - this.datasDeNascimento[r]) >= 29 && (this.today - this.datasDeNascimento[r]) <= 35) {
+            this.ate35++;
+          }
+        }
+        for (let s = 0; s < this.datasDeNascimento.length; s++) {
+          if ((this.today - this.datasDeNascimento[s]) >= 36 && (this.today - this.datasDeNascimento[s]) <= 50) {
+            this.ate50++;
+          }
+        }
+        for (let t = 0; t < this.datasDeNascimento.length; t++) {
+          if ((this.today - this.datasDeNascimento[t]) > 51) {
+            this.acima50++;
+          }
+        }
+        /*---------------------------------------------------------------------------------------------------------------------*/
+
+        for (let j = 0; j < this.info.length; j++) {
+          if (this.info[j]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'] !== undefined) {
+            if (this.info[j]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Celular', 'Notebook', 'Computador', 'Tablet') == -1) {
+              this.outroMeio++;
+            }
+            if (this.info[j]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Celular') !== -1) {
+              this.celular++;
+            }
+            if (this.info[j]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Notebook') !== -1) {
+              this.notebook++;
+              //console.log(this.notebook);
+            }
+            if (this.info[j]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Computador') !== -1) {
+              this.computador++;
+              //console.log(this.computador);
+            }
+            if (this.info[j]['Caso tenha respondido afirmativamente a questão acima, assinale quais os meios.'].indexOf('Tablet') !== -1) {
+              this.tablet++;
+            }
+          }
+        }
+
+        for (let k = 0; k < this.info.length; k++) {
+          if (this.info[k]['Caso tenha respondido afirmativamente a questão acima, assinale em qual(is) aplicativo(s):'] !== undefined) {
+            if (this.info[k]['Caso tenha respondido afirmativamente a questão acima, assinale em qual(is) aplicativo(s):'].indexOf('Excel', 'Windows', 'Word', 'Power Point') == -1) {
+              this.outroAplicativo++;
+            }
+            if (this.info[k]['Caso tenha respondido afirmativamente a questão acima, assinale em qual(is) aplicativo(s):'].indexOf('Excel') !== -1) {
+              this.excel++;
+            }
+            if (this.info[k]['Caso tenha respondido afirmativamente a questão acima, assinale em qual(is) aplicativo(s):'].indexOf('Windows') !== -1) {
+              this.windows++;
+              //console.log(this.notebook);
+            }
+            if (this.info[k]['Caso tenha respondido afirmativamente a questão acima, assinale em qual(is) aplicativo(s):'].indexOf('Word') !== -1) {
+              this.word++;
+            }
+            if (this.info[k]['Caso tenha respondido afirmativamente a questão acima, assinale em qual(is) aplicativo(s):'].indexOf('Power Point') !== -1) {
+              this.powerpoint++;
+            }
+          }
+        }
+
+        for (let p = 0; p < this.info.length; p++) {
+          if (this.info[p]['Tem conhecimento básico em algum idioma além do Português? Qual(is)?'] !== undefined) {
+            if (this.info[p]['Tem conhecimento básico em algum idioma além do Português? Qual(is)?'].indexOf('Inglês', 'Espanhol') == -1) {
+              this.outroIdioma++;
+            }
+            if (this.info[p]['Tem conhecimento básico em algum idioma além do Português? Qual(is)?'].indexOf('Inglês') !== -1) {
+              this.faloIngles++;
+            }
+            if (this.info[p]['Tem conhecimento básico em algum idioma além do Português? Qual(is)?'].indexOf('Espanhol') !== -1) {
+              this.faloEspanhol++;
+            }
+          }
+        }
+
+
         this.cursoLabel = ['Curso'];
         this.cursoChartData = [
           {data: [this.cursoADS], label: 'ADS'},
@@ -911,12 +1070,132 @@ export class HomeComponent implements OnInit {
         ];
         this.possuiInternetGrafico = true;
 
+
+        this.meiosDeInternetLabel = ['Quais os meios de acesso internet?'];
+        this.meiosDeInternetChartData = [
+          {data: [this.celular], label: 'Celular'},
+          {data: [this.notebook], label: 'Notebook'},
+          {data: [this.computador], label: 'Computador'},
+          {data: [this.tablet], label: 'Tablet'},
+          {data: [this.outroMeio], label: 'Outros'}
+        ];
+        this.meiosDeInternetGrafico = true;
+
+        this.somaRendaLabel = ['Soma da renda familiar'];
+        this.somaRendaChartData = [
+          {data: [this.meioSalario], label: '1/2 Salário'},
+          {data: [this.meioSalarioADoisSalarios], label: '1/2 Salário a 2 Salários'},
+          {data: [this.doisSalariosATresSalarios], label: '2 Salários a 3 Salários'},
+          {data: [this.tresSalariosACincoSalarios], label: '3 Salários a 5 Salários'},
+          {data: [this.cincoSalariosADezSalarios], label: '5 Salários a 10 Salários'},
+          {data: [this.dezSalariosADezesseteSalarios], label: '10 Salários a 17 Salários'},
+          {data: [this.acimaDezesseteSalarios], label: 'Acima de 17 Salários'}
+        ];
+        this.somaRendaGrafico = true;
+
+        this.escolaridadeMaeLabel = ['Nível de escolaridade da mãe'];
+        this.escolaridadeMaeChartData = [
+          {data: [this.maeNuncaEstudouENaoSabeLer], label: 'Nunca estudou e não sabe ler e escrever'},
+          {data: [this.maeNuncaEstudouMasSabeLer], label: 'Nunca estudou, mas sabe ler e escrever'},
+          {data: [this.maePrimarioIncompleto], label: 'Primário incompleto'},
+          {data: [this.maePrimarioCompletoGinasialIncompleto], label: 'Primário completo/ginasial incompleto'},
+          {data: [this.maeGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto\n'},
+          {data: [this.maeColegialCompleto], label: 'Colegial completo'},
+          {data: [this.maeUniversitarioIncompleto], label: 'Universitário incompleto'},
+          {data: [this.maeUniversitarioCompleto], label: 'Universitário Completo'}
+        ];
+        this.escolaridadeMaeGrafico = true;
+
+        this.escolaridadePaiLabel = ['Nível de escolaridade do pai'];
+        this.escolaridadePaiChartData = [
+          {data: [this.paiNuncaEstudouENaoSabeLer], label: 'Nunca estudou e não sabe ler e escrever'},
+          {data: [this.paiNuncaEstudouMasSabeLer], label: 'Nunca estudou, mas sabe ler e escrever'},
+          {data: [this.paiPrimarioIncompleto], label: 'Primário incompleto'},
+          {data: [this.paiPrimarioCompletoGinasialIncompleto], label: 'Primário completo/ginasial incompleto'},
+          {data: [this.paiGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto\n'},
+          {data: [this.paiColegialCompleto], label: 'Colegial completo'},
+          {data: [this.paiUniversitarioIncompleto], label: 'Universitário incompleto'},
+          {data: [this.paiUniversitarioCompleto], label: 'Universitário Completo'}
+        ];
+        this.escolaridadePaiGrafico = true;
+
+        this.areaTrabalhoLabel = ['Atualmente, em que área você trabalha?'];
+        this.areaTrabalhoChartData = [
+          {data: [this.nuncaTrabalhei], label: 'Nunca trabalhei'},
+          {data: [this.desempregadoMasJaTrabalheiNaArea], label: 'Estou desempregado(a), mas já trabalhei na área do curso que escolhi'},
+          {data: [this.trabalhoNaArea], label: 'Trabalho na área do curso que escolhi'},
+          {data: [this.trabalhoForaDaArea], label: 'Trabalho fora da área do curso que escolhi'},
+          {data: [this.desempregadoENuncaTrabalheiNaArea], label: 'Estou desempregado(a) e nunca trabalhei na área do curso que escolhi'}
+        ];
+        this.areaTrabalhoGrafico = true;
+
+        this.periodoTrabalhoLabel = ['Se trabalha, qual o período?'];
+        this.periodoTrabalhoChartData = [
+          {data: [this.manhaOuTarde], label: 'Manhã ou tarde'},
+          {data: [this.manhaETarde], label: 'Manhã e tarde (integral)'},
+          {data: [this.noite], label: 'Noite'},
+          {data: [this.regimeDeTurnos], label: 'Regime de turnos'},
+          {data: [this.variavel], label: 'Variável'}
+        ];
+        this.periodoTrabalhoGrafico = true;
+
+        this.vidaEscolarLabel = ['Se trabalha, qual o período?'];
+        this.vidaEscolarChartData = [
+          {data: [this.integralmenteEscolaPublica], label: 'Integralmente em escola pública federal, estadual ou municipal'},
+          {data: [this.integralmenteEscolaParticular], label: 'Integralmente em escola particular'},
+          {data: [this.maiorParteEscolaPublica], label: 'Maior parte em escola pública'},
+          {data: [this.maiorParteEscolaParticular], label: 'Maior parte em escola particular'}
+        ];
+        this.vidaEscolarGrafico = true;
+
+        this.conhecimentoInformaticaLabel = ['Se trabalha, qual o período?'];
+        this.conhecimentoInformaticaChartData = [
+          {data: [this.tenhoConhecimentoInformatica], label: 'Possui conhecimento em informática'},
+          {data: [this.naoTenhoConhecimentoInformatica], label: 'Não possui conhecimento em informática'}
+        ];
+        this.conhecimentoInformaticaGrafico = true;
+
+        this.aplicativosLabel = ['Se trabalha, qual o período?'];
+        this.aplicativosChartData = [
+          {data: [this.excel], label: 'Excel'},
+          {data: [this.windows], label: 'Windows'},
+          {data: [this.word], label: 'Word'},
+          {data: [this.powerpoint], label: 'Power Point'},
+          {data: [this.outroAplicativo], label: 'Outros'},
+        ];
+        this.aplicativosGrafico = true;
+
+        this.idiomasLabel = ['Se trabalha, qual o período?'];
+        this.idiomasChartData = [
+          {data: [this.faloIngles], label: 'Inglês'},
+          {data: [this.faloEspanhol], label: 'Espanhol'},
+          {data: [this.outroIdioma], label: 'Outros'}
+        ];
+        this.idiomasGrafico = true;
+
+        this.estudeiLabel = ['Já estudaram, na FATEC'];
+        this.estudeiChartData = [
+          {data: [this.jaEstudei], label: 'Já estudaram'},
+          {data: [this.naoEstudei], label: 'Não estudaram na FATEC'}
+        ];
+        this.estudeiGrafico = true;
+
+        this.idadeLabel = ['Já estudaram, na FATEC'];
+        this.idadeChartData = [
+          {data: [this.ate21], label: 'Até 21 anos'},
+          {data: [this.ate28], label: 'Até 28 anos'},
+          {data: [this.ate35], label: 'Até 35 anos'},
+          {data: [this.ate50], label: 'Até 50 anos'},
+          {data: [this.acima50], label: 'Acima de 50 anos'},
+        ];
+        this.idadeGrafico = true;
+
       };
       // tslint:disable-next-line:prefer-for-of
 
       fileReader.readAsArrayBuffer(this.file);
-      console.log(this.datasDeNascimento);
     }
+    ;
 
 
   }

@@ -27,12 +27,12 @@ export class AppComponent implements OnInit {
         }
       },
       {
-        id: 'graficos',
+        id: 'autor',
         parentId: null,
-        name: 'Gráficos',
-        url: 'graficos',
+        name: 'Autor',
+        url: 'http://github.com/GlHenrique',
         icon: {
-          material: 'insert_chart'
+          material: 'people_alt'
         }
       }
     ];

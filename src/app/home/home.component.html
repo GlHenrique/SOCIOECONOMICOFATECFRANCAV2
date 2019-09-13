@@ -20,278 +20,351 @@
   </ui-card>
 </div>
 
+<div *ngIf="upload1">
+  <ui-tab-group [lazyLoad]="true" class="scrolled">
+    <ui-tab *ngIf="cursoGrafico" label="Curso">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="cursoChartData"
+                  [labels]="cursoLabel"
+                  [options]="barChartOptions"
+                  [legend]="cursoChartLegend"
+                  [chartType]="cursoChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="periodoGrafico" label="Período">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="periodoChartData"
+                  [labels]="periodoLabel"
+                  [options]="barChartOptions"
+                  [legend]="periodoChartLegend"
+                  [chartType]="periodoChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="semestreGrafico" label="Semestre">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="semestreChartData"
+                  [labels]="semestreLabel"
+                  [options]="barChartOptions"
+                  [legend]="semestreChartLegend"
+                  [chartType]="semestreChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="generoGrafico" label="Gênero">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="generoChartData"
+                  [labels]="generoChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="generoChartLegend"
+                  [chartType]="generoChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="idadeGrafico" label="Idades">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="idadeChartData"
+                  [labels]="idadeLabel"
+                  [options]="barChartOptions"
+                  [legend]="idadeChartLegend"
+                  [chartType]="idadeChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="estadoCivilGrafico" label="Estado Civil">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="estadoCivilChartData"
+                  [labels]="estadoCivilLabel"
+                  [options]="barChartOptions"
+                  [legend]="estadoCivilChartLegend"
+                  [chartType]="estadoCivilChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="deficienciaGrafico" label="Possui Deficiência">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="deficienciaChartData"
+                  [labels]="deficienciaLabel"
+                  [options]="barChartOptions"
+                  [legend]="deficienciaChartLegend"
+                  [chartType]="deficienciaChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="filhosGrafico" label="Possui filhos?">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="filhosChartData"
+                  [labels]="filhosLabel"
+                  [options]="barChartOptions"
+                  [legend]="filhosChartLegend"
+                  [chartType]="filhosChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="locomocaoGrafico" label="Locomoção">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="locomocaoChartData"
+                  [labels]="locomocaoLabel"
+                  [options]="barChartOptions"
+                  [legend]="locomocaoChartLegend"
+                  [chartType]="locomocaoChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="domicilioGrafico" label="Domicílio">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="domicilioChartData"
+                  [labels]="domicilioLabel"
+                  [options]="barChartOptions"
+                  [legend]="domicilioChartLegend"
+                  [chartType]="domicilioChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="tempoResidenciaGrafico" label="Tempo de Residência">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="tempoResidenciaChartData"
+                  [labels]="tempoResidenciaLabel"
+                  [options]="barChartOptions"
+                  [legend]="tempoResidenciaChartLegend"
+                  [chartType]="tempoResidenciaChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="quemMoraGrafico" label="Quem mora?">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="quemMoraChartData"
+                  [labels]="quemMoraLabel"
+                  [options]="barChartOptions"
+                  [legend]="quemMoraChartLegend"
+                  [chartType]="quemMoraChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="quantasPessoasMoramGrafico" label="Quantas moram?">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="quantasPessoasMoramChartData"
+                  [labels]="quantasPessoasMoramLabel"
+                  [options]="barChartOptions"
+                  [legend]="quantasPessoasMoramChartLegend"
+                  [chartType]="quantasPessoasMoramChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="quantasPessoasExercemGrafico" label="Quantas são remuneradas?">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="quantasPessoasExercemChartData"
+                  [labels]="quantasPessoasExercemLabel"
+                  [options]="barChartOptions"
+                  [legend]="quantasPessoasExercemChartLegend"
+                  [chartType]="quantasPessoasExercemChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="possuiInternetGrafico" label="Possuem internet?">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="possuiInternetChartData"
+                  [labels]="possuiInternetLabel"
+                  [options]="barChartOptions"
+                  [legend]="possuiInternetChartLegend"
+                  [chartType]="possuiInternetChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="meiosDeInternetGrafico" label="Meio de Internet">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="meiosDeInternetChartData"
+                  [labels]="meiosDeInternetLabel"
+                  [options]="barChartOptions"
+                  [legend]="meiosDeInternetChartLegend"
+                  [chartType]="meiosDeInternetChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="somaRendaGrafico" label="Soma da renda">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="somaRendaChartData"
+                  [labels]="somaRendaLabel"
+                  [options]="barChartOptions"
+                  [legend]="somaRendaChartLegend"
+                  [chartType]="somaRendaChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="escolaridadeMaeGrafico" label="Escolaridade Mãe">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="escolaridadeMaeChartData"
+                  [labels]="escolaridadeMaeLabel"
+                  [options]="barChartOptions"
+                  [legend]="escolaridadeMaeChartLegend"
+                  [chartType]="escolaridadeMaeChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="escolaridadePaiGrafico" label="Escolaridade Pai">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="escolaridadePaiChartData"
+                  [labels]="escolaridadePaiLabel"
+                  [options]="barChartOptions"
+                  [legend]="escolaridadePaiChartLegend"
+                  [chartType]="escolaridadePaiChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="areaTrabalhoGrafico" label="Área de atuação">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="areaTrabalhoChartData"
+                  [labels]="areaTrabalhoLabel"
+                  [options]="barChartOptions"
+                  [legend]="areaTrabalhoChartLegend"
+                  [chartType]="areaTrabalhoChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="periodoTrabalhoGrafico" label="Período de trabalho">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="periodoTrabalhoChartData"
+                  [labels]="periodoTrabalhoLabel"
+                  [options]="barChartOptions"
+                  [legend]="periodoTrabalhoChartLegend"
+                  [chartType]="periodoTrabalhoChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="vidaEscolarGrafico" label="Histórico escolar">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="vidaEscolarChartData"
+                  [labels]="vidaEscolarLabel"
+                  [options]="barChartOptions"
+                  [legend]="vidaEscolarChartLegend"
+                  [chartType]="vidaEscolarChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="conhecimentoInformaticaGrafico" label="Conhecimento Informática">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="conhecimentoInformaticaChartData"
+                  [labels]="conhecimentoInformaticaLabel"
+                  [options]="barChartOptions"
+                  [legend]="conhecimentoInformaticaChartLegend"
+                  [chartType]="conhecimentoInformaticaChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="aplicativosGrafico" label="Aplicações dominadas">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="aplicativosChartData"
+                  [labels]="aplicativosLabel"
+                  [options]="barChartOptions"
+                  [legend]="aplicativosChartLegend"
+                  [chartType]="aplicativosChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="idiomasGrafico" label="Idiomas estrangeiros">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="idiomasChartData"
+                  [labels]="idiomasLabel"
+                  [options]="barChartOptions"
+                  [legend]="idiomasChartLegend"
+                  [chartType]="idiomasChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="estudeiGrafico" label="FATEC">
+      <ui-card-content>
+        <div class="align">
+          <canvas baseChart
+                  [datasets]="estudeiChartData"
+                  [labels]="estudeiLabel"
+                  [options]="barChartOptions"
+                  [legend]="estudeiChartLegend"
+                  [chartType]="estudeiChartType">
+          </canvas>
+        </div>
+      </ui-card-content>
+    </ui-tab>
+  </ui-tab-group>
 
-<ui-tabs-pages #tabsPages>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="cursoGrafico">
-        <canvas baseChart
-                [datasets]="cursoChartData"
-                [labels]="cursoLabel"
-                [options]="barChartOptions"
-                [legend]="cursoChartLegend"
-                [chartType]="cursoChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(2)" uiRipple>Ir para página 2</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="periodoGrafico">
-        <canvas baseChart
-                [datasets]="periodoChartData"
-                [labels]="periodoLabel"
-                [options]="barChartOptions"
-                [legend]="periodoChartLegend"
-                [chartType]="periodoChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(3)" uiRipple>Ir para página 3</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(1)" uiRipple>Voltar para página 1</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="semestreGrafico">
-        <canvas baseChart
-                [datasets]="semestreChartData"
-                [labels]="semestreLabel"
-                [options]="barChartOptions"
-                [legend]="semestreChartLegend"
-                [chartType]="semestreChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(4)" uiRipple>Ir para página 4</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(2)" uiRipple>Voltar para página 4</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="generoGrafico">
-        <canvas baseChart
-                [datasets]="generoChartData"
-                [labels]="generoChartLabels"
-                [options]="barChartOptions"
-                [legend]="generoChartLegend"
-                [chartType]="generoChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(5)" uiRipple>Ir para página 5</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(3)" uiRipple>Voltar para página 3</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="estadoCivilGrafico">
-        <canvas baseChart
-                [datasets]="estadoCivilChartData"
-                [labels]="estadoCivilLabel"
-                [options]="barChartOptions"
-                [legend]="estadoCivilChartLegend"
-                [chartType]="estadoCivilChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(6)" uiRipple>Ir para página 6</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(4)" uiRipple>Voltar para página 4</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="deficienciaGrafico">
-        <canvas baseChart
-                [datasets]="deficienciaChartData"
-                [labels]="deficienciaLabel"
-                [options]="barChartOptions"
-                [legend]="deficienciaChartLegend"
-                [chartType]="deficienciaChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(7)" uiRipple>Ir para página 7</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(5)" uiRipple>Voltar para página 5</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="filhosGrafico">
-        <canvas baseChart
-                [datasets]="filhosChartData"
-                [labels]="filhosLabel"
-                [options]="barChartOptions"
-                [legend]="filhosChartLegend"
-                [chartType]="filhosChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(8)" uiRipple>Ir para página 8</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(6)" uiRipple>Voltar para página 6</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="locomocaoGrafico">
-        <canvas baseChart
-                [datasets]="locomocaoChartData"
-                [labels]="locomocaoLabel"
-                [options]="barChartOptions"
-                [legend]="locomocaoChartLegend"
-                [chartType]="locomocaoChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(9)" uiRipple>Ir para página 9</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(7)" uiRipple>Voltar para página 7</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="domicilioGrafico">
-        <canvas baseChart
-                [datasets]="domicilioChartData"
-                [labels]="domicilioLabel"
-                [options]="barChartOptions"
-                [legend]="domicilioChartLegend"
-                [chartType]="domicilioChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(10)" uiRipple>Ir para página 10</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(8)" uiRipple>Voltar para página 8</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="tempoResidenciaGrafico">
-        <canvas baseChart
-                [datasets]="tempoResidenciaChartData"
-                [labels]="tempoResidenciaLabel"
-                [options]="barChartOptions"
-                [legend]="tempoResidenciaChartLegend"
-                [chartType]="tempoResidenciaChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(11)" uiRipple>Ir para página 11</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(9)" uiRipple>Voltar para página 9</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="quemMoraGrafico">
-        <canvas baseChart
-                [datasets]="quemMoraChartData"
-                [labels]="quemMoraLabel"
-                [options]="barChartOptions"
-                [legend]="quemMoraChartLegend"
-                [chartType]="quemMoraChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(12)" uiRipple>Ir para página 12</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(10)" uiRipple>Voltar para página 10</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="quantasPessoasMoramGrafico">
-        <canvas baseChart
-                [datasets]="quantasPessoasMoramChartData"
-                [labels]="quantasPessoasMoramLabel"
-                [options]="barChartOptions"
-                [legend]="quantasPessoasMoramChartLegend"
-                [chartType]="quantasPessoasMoramChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(13)" uiRipple>Ir para página 13</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(11)" uiRipple>Voltar para página 11</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="quantasPessoasExercemGrafico">
-        <canvas baseChart
-                [datasets]="quantasPessoasExercemChartData"
-                [labels]="quantasPessoasExercemLabel"
-                [options]="barChartOptions"
-                [legend]="quantasPessoasExercemChartLegend"
-                [chartType]="quantasPessoasExercemChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(14)" uiRipple>Ir para página 14</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(12)" uiRipple>Voltar para página 12</button>
-    </div>
-  </div>
-  <div class="page">
-    <ui-card-content>
-      <div class="align" *ngIf="possuiInternetGrafico">
-        <canvas baseChart
-                [datasets]="possuiInternetChartData"
-                [labels]="possuiInternetLabel"
-                [options]="barChartOptions"
-                [legend]="possuiInternetChartLegend"
-                [chartType]="possuiInternetChartType">
-        </canvas>
-      </div>
-    </ui-card-content>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(15)" uiRipple>Ir para página 15</button>
-    </div>
-    <div class="ui-button-container cover">
-      <button class="ui-button" (click)="tabsPages.pagesGoToPage(13)" uiRipple>Voltar para página 13</button>
-    </div>
-  </div>
+</div>
 
 
-
-
-
-
-</ui-tabs-pages>
 
 
 
