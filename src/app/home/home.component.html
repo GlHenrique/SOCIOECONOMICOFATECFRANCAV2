@@ -12,13 +12,14 @@
         </div>
         <div class="corpo-esqueleto">
           <button (click)="submitFile.click()" class="ui-button success">Enviar arquivo</button>
+          <input #submitFile hidden type="file" (change)="insertFile($event);Upload()" placeholder="Upload file"
+                 accept=".xlsx">
         </div>
       </div>
     </ui-card-content>
-    <input #submitFile hidden type="file" (change)="insertFile($event);Upload()" placeholder="Upload file"
-           accept=".xlsx">
   </ui-card>
 </div>
+
 
 <div *ngIf="upload1">
   <ui-tab-group [lazyLoad]="true" class="scrolled">
@@ -363,10 +364,3 @@
   </ui-tab-group>
 
 </div>
-
-
-
-
-
-
-

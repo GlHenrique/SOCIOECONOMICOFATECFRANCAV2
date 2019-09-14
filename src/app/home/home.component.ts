@@ -3,6 +3,7 @@ import {UiToolbarService} from 'ng-smn-ui';
 import * as XLSX from 'xlsx';
 import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
+import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,23 @@ export class HomeComponent implements OnInit {
   upload1 = false;
   idade: any;
 
+  files: any = [];
+
+  uploadFile(event) {
+    for (let index = 0; index < event.length; index++) {
+      const element = event[index];
+      this.files.push(element.name)
+    }
+  }
+  deleteAttachment(index) {
+    this.files.splice(index, 1)
+  }
+
+
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: {xAxes: [{}], yAxes: [{ticks: {beginAtZero: true, suggestedMin: 0}}]},
+    scales: {xAxes: [{}], yAxes: [{ticks: {beginAtZero: true, suggestedMin: 0, fontSize: 20}}]},
     plugins: {
       datalabels: {
         anchor: 'end',
@@ -27,6 +41,8 @@ export class HomeComponent implements OnInit {
       }
     }
   };
+
+
 
   public cursoLabel: Label[];
   public cursoChartType: ChartType = 'bar';
@@ -1139,7 +1155,7 @@ export class HomeComponent implements OnInit {
         ];
         this.periodoTrabalhoGrafico = true;
 
-        this.vidaEscolarLabel = ['Se trabalha, qual o período?'];
+        this.vidaEscolarLabel = ['Vida Escolar'];
         this.vidaEscolarChartData = [
           {data: [this.integralmenteEscolaPublica], label: 'Integralmente em escola pública federal, estadual ou municipal'},
           {data: [this.integralmenteEscolaParticular], label: 'Integralmente em escola particular'},
@@ -1148,14 +1164,14 @@ export class HomeComponent implements OnInit {
         ];
         this.vidaEscolarGrafico = true;
 
-        this.conhecimentoInformaticaLabel = ['Se trabalha, qual o período?'];
+        this.conhecimentoInformaticaLabel = ['Conhecimento Informática'];
         this.conhecimentoInformaticaChartData = [
           {data: [this.tenhoConhecimentoInformatica], label: 'Possui conhecimento em informática'},
           {data: [this.naoTenhoConhecimentoInformatica], label: 'Não possui conhecimento em informática'}
         ];
         this.conhecimentoInformaticaGrafico = true;
 
-        this.aplicativosLabel = ['Se trabalha, qual o período?'];
+        this.aplicativosLabel = ['Aplicativos de domínio'];
         this.aplicativosChartData = [
           {data: [this.excel], label: 'Excel'},
           {data: [this.windows], label: 'Windows'},
@@ -1165,7 +1181,7 @@ export class HomeComponent implements OnInit {
         ];
         this.aplicativosGrafico = true;
 
-        this.idiomasLabel = ['Se trabalha, qual o período?'];
+        this.idiomasLabel = ['Idioma'];
         this.idiomasChartData = [
           {data: [this.faloIngles], label: 'Inglês'},
           {data: [this.faloEspanhol], label: 'Espanhol'},
@@ -1180,7 +1196,7 @@ export class HomeComponent implements OnInit {
         ];
         this.estudeiGrafico = true;
 
-        this.idadeLabel = ['Já estudaram, na FATEC'];
+        this.idadeLabel = ['Idade'];
         this.idadeChartData = [
           {data: [this.ate21], label: 'Até 21 anos'},
           {data: [this.ate28], label: 'Até 28 anos'},
