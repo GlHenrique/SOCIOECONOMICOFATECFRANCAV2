@@ -1,13 +1,14 @@
 {
-  "name": "testes",
+  "name": "socioeconomicofatec",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4200 --host=0.0.0.0 --disable-host-check",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "chart.js": "^2.8.0",
+    "express": "^4.17.1",
     "ng-smn-ui": "^2.14.5",
     "ng2-charts": "^2.3.0",
     "ngx-file-drop": "^8.0.7",
@@ -50,5 +52,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "engines": {
+    "node": "~8.9.4",
+    "npm": "~6.0.0"
   }
 }
