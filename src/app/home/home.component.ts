@@ -3,7 +3,7 @@ import {UiToolbarService, UiElement} from 'ng-smn-ui';
 import * as XLSX from 'xlsx';
 import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
-import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import {NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry} from 'ngx-file-drop';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   upload1 = false;
   idade: any;
 
+
   list: Array<any>;
   list2: Array<any>;
 
@@ -26,16 +27,6 @@ export class HomeComponent implements OnInit {
   porqueFatecTabela: boolean;
   anoIngresso: {};
   porqueFatec: [];
-
-  uploadFile(event) {
-    for (let index = 0; index < event.length; index++) {
-      const element = event[index];
-      this.files.push(element.name)
-    }
-  }
-  deleteAttachment(index) {
-    this.files.splice(index, 1)
-  }
 
 
   public barChartOptions: ChartOptions = {
@@ -49,7 +40,6 @@ export class HomeComponent implements OnInit {
       }
     }
   };
-
 
 
   public cursoLabel: Label[];
@@ -371,8 +361,11 @@ export class HomeComponent implements OnInit {
 
   }
 
+
   insertFile(event) {
     this.file = event.target.files[0];
+    this.Upload();
+
   }
 
   Upload() {
@@ -928,7 +921,7 @@ export class HomeComponent implements OnInit {
         }
 
         for (let r = 0; r < this.info.length; r++) {
-          if(this.info[r]['Se respondeu "Sim" à pergunta anterior, especifique o ano e o curso:'] != undefined) {
+          if (this.info[r]['Se respondeu "Sim" à pergunta anterior, especifique o ano e o curso:'] != undefined) {
             this.anoIngresso = this.info[r]['Se respondeu "Sim" à pergunta anterior, especifique o ano e o curso:'].split(',');
 
           }
@@ -1143,9 +1136,6 @@ export class HomeComponent implements OnInit {
             porque: this.info[66]['Por que você prestou o Vestibular nesta faculdade?']
           }
         ];
-
-
-
 
 
         this.cursoLabel = ['Curso'];
@@ -1439,8 +1429,8 @@ export class HomeComponent implements OnInit {
       // tslint:disable-next-line:prefer-for-of
 
       fileReader.readAsArrayBuffer(this.file);
-    };
-
+    }
+    ;
 
 
   }

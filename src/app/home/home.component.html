@@ -7,12 +7,12 @@
         </div>
         <div class="corpo-esqueleto">
           <div class="messages">
-            <h3>Arraste e solte o arquivo aqui.</h3>
+            <h3>Click abaixo para subir o arquivo.</h3>
           </div>
         </div>
         <div class="corpo-esqueleto">
           <button (click)="submitFile.click()" class="ui-button success">Enviar arquivo</button>
-          <input #submitFile hidden type="file" (change)="insertFile($event);Upload()" placeholder="Upload file"
+          <input #submitFile hidden type="file" (change)="insertFile($event)"
                  accept=".xlsx">
         </div>
       </div>
@@ -369,7 +369,7 @@
               Ano de ingresso
             </th>
             <th>
-             Curso
+              Curso
             </th>
           </tr>
           <tr *ngFor="let item of list">

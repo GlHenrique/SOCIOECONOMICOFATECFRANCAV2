@@ -1,42 +1,75 @@
-import { Directive, Output, Input, EventEmitter, HostBinding, HostListener } from '@angular/core';
+import { Directive, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
-  selector: '[appDragDrop]'
+  selector: '[appDropZone]'
 })
 export class DragDropDirective {
+  // The directive emits a `fileDrop` event
+  // with the list of files dropped on the element
+  // as an JS array of `File` objects.
+  @Output('appDropZone') fileDrop = new EventEmitter<Array<File>>();
 
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output() onFileDropped = new EventEmitter<any>();
+  // Disable dropping on the body of the document.
+  // This prevents the browser from loading the dropped files
+  // using it's default behaviour if the user misses the drop zone.
+  // Set this input to false if you want the browser default behaviour.
+  @Input() preventBodyDrop = true;
 
-  @HostBinding('style.background-color') private background = '#f5fcff';
-  @HostBinding('style.opacity') private opacity = '1';
+  // The `drop-zone-active` class is applied to the host
+  // element when a drag is currently over the target.
+  @HostBinding('class.drop-zone-active')
+  active = false;
 
-  // Dragover listener
-  @HostListener('dragover', ['$event']) onDragOver(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
-    this.background = '#9ecbec';
-    this.opacity = '0.8';
-  }
+  @HostListener('drop', ['$event'])
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    this.active = false;
 
-  // Dragleave listener
-  @HostListener('dragleave', ['$event']) public onDragLeave(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
-    this.background = '#f5fcff';
-    this.opacity = '1';
-  }
+    const { dataTransfer } = event;
 
-  // Drop listener
-  @HostListener('drop', ['$event']) public ondrop(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
-    this.background = '#f5fcff';
-    this.opacity = '1';
-    const files = evt.dataTransfer.files;
-    if (files.length > 0) {
-      this.onFileDropped.emit(files);
+    if (dataTransfer.items) {
+      const files = [];
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < dataTransfer.items.length; i++) {
+        // If dropped items aren't files, reject them
+        if (dataTransfer.items[i].kind === 'file') {
+          files.push(dataTransfer.items[i].getAsFile());
+        }
+      }
+      dataTransfer.items.clear();
+      this.fileDrop.emit(files);
+    } else {
+      const files = dataTransfer.files;
+      dataTransfer.clearData();
+      this.fileDrop.emit(Array.from(files));
     }
   }
+
+  @HostListener('dragover', ['$event'])
+  onDragOver(event: DragEvent) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.active = true;
+  }
+
+  @HostListener('dragleave', ['$event'])
+  onDragLeave(event: DragEvent) {
+    this.active = false;
+  }
+
+  @HostListener('body:dragover', ['$event'])
+  onBodyDragOver(event: DragEvent) {
+    if (this.preventBodyDrop) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+  @HostListener('body:drop', ['$event'])
+  onBodyDrop(event: DragEvent) {
+    if (this.preventBodyDrop) {
+      event.preventDefault();
+    }
+  }
+
 
 }
