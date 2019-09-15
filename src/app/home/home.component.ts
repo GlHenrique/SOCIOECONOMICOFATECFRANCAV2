@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {UiToolbarService} from 'ng-smn-ui';
+import {Component, OnInit, ElementRef} from '@angular/core';
+import {UiToolbarService, UiElement} from 'ng-smn-ui';
 import * as XLSX from 'xlsx';
 import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
@@ -17,7 +17,15 @@ export class HomeComponent implements OnInit {
   upload1 = false;
   idade: any;
 
+  list: Array<any>;
+  list2: Array<any>;
+
+
   files: any = [];
+  quemestudouFatecTabela: boolean;
+  porqueFatecTabela: boolean;
+  anoIngresso: {};
+  porqueFatec: [];
 
   uploadFile(event) {
     for (let index = 0; index < event.length; index++) {
@@ -208,7 +216,7 @@ export class HomeComponent implements OnInit {
   public idadeChartData: ChartDataSets[];
   private idadeGrafico: boolean;
 
-  constructor() {
+  constructor(private element: ElementRef) {
   }
 
   file: File;
@@ -835,7 +843,6 @@ export class HomeComponent implements OnInit {
         }
 
         /* BLOCO PARA CAPTURAR IDADE */
-        console.log(this.datasDeNascimento);
         for (let m = 0; m < this.datasDeNascimento.length; m++) {
           if ((this.today - this.datasDeNascimento[m]) <= 21) {
             this.ate21++;
@@ -919,6 +926,226 @@ export class HomeComponent implements OnInit {
             }
           }
         }
+
+        for (let r = 0; r < this.info.length; r++) {
+          if(this.info[r]['Se respondeu "Sim" à pergunta anterior, especifique o ano e o curso:'] != undefined) {
+            this.anoIngresso = this.info[r]['Se respondeu "Sim" à pergunta anterior, especifique o ano e o curso:'].split(',');
+
+          }
+        }
+        this.list = [
+          {
+            curso: this.anoIngresso[0],
+            anoIngresso: this.anoIngresso[1]
+          }
+        ];
+
+        this.list2 = [
+          {
+            porque: this.info[0]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[1]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[2]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[3]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[4]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[5]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[6]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[7]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[8]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[9]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[10]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[11]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[12]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[13]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[14]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[15]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[16]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[17]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[18]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[19]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[20]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[21]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[22]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[23]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[24]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[25]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[26]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[27]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[28]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[29]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[30]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[31]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[32]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[33]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[34]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[35]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[36]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[37]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[38]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[39]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[40]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[41]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[42]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[43]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[44]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[45]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[46]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[47]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[48]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[49]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[50]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[51]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[52]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[53]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[54]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[55]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[56]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[57]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[58]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[59]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[60]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[61]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[62]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[63]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[64]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[65]['Por que você prestou o Vestibular nesta faculdade?']
+          },
+          {
+            porque: this.info[66]['Por que você prestou o Vestibular nesta faculdade?']
+          }
+        ];
+
+
+
 
 
         this.cursoLabel = ['Curso'];
@@ -1205,15 +1432,18 @@ export class HomeComponent implements OnInit {
           {data: [this.acima50], label: 'Acima de 50 anos'},
         ];
         this.idadeGrafico = true;
+        this.quemestudouFatecTabela = true;
+        this.porqueFatecTabela = true;
 
       };
       // tslint:disable-next-line:prefer-for-of
 
       fileReader.readAsArrayBuffer(this.file);
-    }
-    ;
+    };
+
 
 
   }
+
 
 }

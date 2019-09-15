@@ -19,8 +19,6 @@
     </ui-card-content>
   </ui-card>
 </div>
-
-
 <div *ngIf="upload1">
   <ui-tab-group [lazyLoad]="true" class="scrolled">
     <ui-tab *ngIf="cursoGrafico" label="Curso">
@@ -361,6 +359,55 @@
         </div>
       </ui-card-content>
     </ui-tab>
+    <ui-tab *ngIf="quemestudouFatecTabela" label="Quem já estudou na Fatec">
+      <ui-card-content>
+        
+        <ui-data-table class="responsive">
+          <tbody>
+          <tr>
+            <th>
+              Ano de ingresso
+            </th>
+            <th>
+             Curso
+            </th>
+          </tr>
+          <tr *ngFor="let item of list">
+            <td>
+              {{item.curso ? item.curso : ""}}
+            </td>
+            <td>
+              {{item.anoIngresso ? item.anoIngresso : ""}}
+            </td>
+          </tr>
+          </tbody>
+          <tfoot></tfoot>
+        </ui-data-table>
+      
+      
+      </ui-card-content>
+    </ui-tab>
+    <ui-tab *ngIf="porqueFatecTabela" label="Por quê escolheu Fatec?">
+      <ui-card-content>
+        
+        <ui-data-table class="responsive">
+          <tbody>
+          <tr>
+            <th>
+              Por quê escolheu a Fatec?
+            </th>
+          </tr>
+          <tr *ngFor="let item of list2">
+            <td>
+              {{item.porque ? item.porque : ""}}
+            </td>
+          </tr>
+          </tbody>
+          <tfoot></tfoot>
+        </ui-data-table>
+      
+      
+      </ui-card-content>
+    </ui-tab>
   </ui-tab-group>
-
 </div>

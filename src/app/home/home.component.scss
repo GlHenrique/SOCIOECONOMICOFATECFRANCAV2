@@ -80,6 +80,24 @@ ui-card {
   width: 30px;
 }
 
+@import "~ng-smn-ui/lib/core/variables";
+:host {
+  ui-card {
+    position: relative;
+  }
+  ui-toolbar {
+    .title {
+      transition: opacity 280ms ui-easing('deceleration'),
+      transform 280ms ui-easing('deceleration');
+
+      &.hide {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+  }
+}
+
 
 
 
