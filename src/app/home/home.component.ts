@@ -46,167 +46,167 @@ export class HomeComponent implements OnInit {
   public cursoChartType: ChartType = 'bar';
   public cursoChartLegend = true;
   public cursoChartData: ChartDataSets[];
-  private cursoGrafico: boolean;
+  public cursoGrafico: boolean;
 
 
   public generoChartLabels: Label[];
   public generoChartType: ChartType = 'bar';
   public generoChartLegend = true;
   public generoChartData: ChartDataSets[];
-  private generoGrafico: boolean;
+  public generoGrafico: boolean;
 
 
   public semestreLabel: Label[];
   public semestreChartType: ChartType = 'bar';
   public semestreChartLegend = true;
   public semestreChartData: ChartDataSets[];
-  private semestreGrafico: boolean;
+  public semestreGrafico: boolean;
 
   public periodoLabel: Label[];
   public periodoChartType: ChartType = 'bar';
   public periodoChartLegend = true;
   public periodoChartData: ChartDataSets[];
-  private periodoGrafico: boolean;
+  public periodoGrafico: boolean;
 
   public estadoCivilLabel: Label[];
   public estadoCivilChartType: ChartType = 'bar';
   public estadoCivilChartLegend = true;
   public estadoCivilChartData: ChartDataSets[];
-  private estadoCivilGrafico: boolean;
+  public estadoCivilGrafico: boolean;
 
   public deficienciaLabel: Label[];
   public deficienciaChartType: ChartType = 'bar';
   public deficienciaChartLegend = true;
   public deficienciaChartData: ChartDataSets[];
-  private deficienciaGrafico: boolean;
+  public deficienciaGrafico: boolean;
 
   public filhosLabel: Label[];
   public filhosChartType: ChartType = 'bar';
   public filhosChartLegend = true;
   public filhosChartData: ChartDataSets[];
-  private filhosGrafico: boolean;
+  public filhosGrafico: boolean;
 
   public municipioLabel: Label[];
   public municipioChartType: ChartType = 'bar';
   public municipioChartLegend = true;
   public municipioChartData: ChartDataSets[];
-  private municipioGrafico: boolean;
+  public municipioGrafico: boolean;
 
   public locomocaoLabel: Label[];
   public locomocaoChartType: ChartType = 'bar';
   public locomocaoChartLegend = true;
   public locomocaoChartData: ChartDataSets[];
-  private locomocaoGrafico: boolean;
+  public locomocaoGrafico: boolean;
 
   public domicilioLabel: Label[];
   public domicilioChartType: ChartType = 'bar';
   public domicilioChartLegend = true;
   public domicilioChartData: ChartDataSets[];
-  private domicilioGrafico: boolean;
+  public domicilioGrafico: boolean;
 
   public tempoResidenciaLabel: Label[];
   public tempoResidenciaChartType: ChartType = 'bar';
   public tempoResidenciaChartLegend = true;
   public tempoResidenciaChartData: ChartDataSets[];
-  private tempoResidenciaGrafico: boolean;
+  public tempoResidenciaGrafico: boolean;
 
   public quemMoraLabel: Label[];
   public quemMoraChartType: ChartType = 'bar';
   public quemMoraChartLegend = true;
   public quemMoraChartData: ChartDataSets[];
-  private quemMoraGrafico: boolean;
+  public quemMoraGrafico: boolean;
 
   public quantasPessoasMoramLabel: Label[];
   public quantasPessoasMoramChartType: ChartType = 'bar';
   public quantasPessoasMoramChartLegend = true;
   public quantasPessoasMoramChartData: ChartDataSets[];
-  private quantasPessoasMoramGrafico: boolean;
+  public quantasPessoasMoramGrafico: boolean;
 
   public quantasPessoasExercemLabel: Label[];
   public quantasPessoasExercemChartType: ChartType = 'bar';
   public quantasPessoasExercemChartLegend = true;
   public quantasPessoasExercemChartData: ChartDataSets[];
-  private quantasPessoasExercemGrafico: boolean;
+  public quantasPessoasExercemGrafico: boolean;
 
   public possuiInternetLabel: Label[];
   public possuiInternetChartType: ChartType = 'bar';
   public possuiInternetChartLegend = true;
   public possuiInternetChartData: ChartDataSets[];
-  private possuiInternetGrafico: boolean;
+  public possuiInternetGrafico: boolean;
 
   public meiosDeInternetLabel: Label[];
   public meiosDeInternetChartType: ChartType = 'bar';
   public meiosDeInternetChartLegend = true;
   public meiosDeInternetChartData: ChartDataSets[];
-  private meiosDeInternetGrafico: boolean;
+  public meiosDeInternetGrafico: boolean;
 
   public somaRendaLabel: Label[];
   public somaRendaChartType: ChartType = 'bar';
   public somaRendaChartLegend = true;
   public somaRendaChartData: ChartDataSets[];
-  private somaRendaGrafico: boolean;
+  public somaRendaGrafico: boolean;
 
   public escolaridadeMaeLabel: Label[];
   public escolaridadeMaeChartType: ChartType = 'bar';
   public escolaridadeMaeChartLegend = true;
   public escolaridadeMaeChartData: ChartDataSets[];
-  private escolaridadeMaeGrafico: boolean;
+  public escolaridadeMaeGrafico: boolean;
 
   public escolaridadePaiLabel: Label[];
   public escolaridadePaiChartType: ChartType = 'bar';
   public escolaridadePaiChartLegend = true;
   public escolaridadePaiChartData: ChartDataSets[];
-  private escolaridadePaiGrafico: boolean;
+  public escolaridadePaiGrafico: boolean;
 
   public areaTrabalhoLabel: Label[];
   public areaTrabalhoChartType: ChartType = 'bar';
   public areaTrabalhoChartLegend = true;
   public areaTrabalhoChartData: ChartDataSets[];
-  private areaTrabalhoGrafico: boolean;
+  public areaTrabalhoGrafico: boolean;
 
   public periodoTrabalhoLabel: Label[];
   public periodoTrabalhoChartType: ChartType = 'bar';
   public periodoTrabalhoChartLegend = true;
   public periodoTrabalhoChartData: ChartDataSets[];
-  private periodoTrabalhoGrafico: boolean;
+  public periodoTrabalhoGrafico: boolean;
 
   public vidaEscolarLabel: Label[];
   public vidaEscolarChartType: ChartType = 'bar';
   public vidaEscolarChartLegend = true;
   public vidaEscolarChartData: ChartDataSets[];
-  private vidaEscolarGrafico: boolean;
+  public vidaEscolarGrafico: boolean;
 
   public conhecimentoInformaticaLabel: Label[];
   public conhecimentoInformaticaChartType: ChartType = 'bar';
   public conhecimentoInformaticaChartLegend = true;
   public conhecimentoInformaticaChartData: ChartDataSets[];
-  private conhecimentoInformaticaGrafico: boolean;
+  public conhecimentoInformaticaGrafico: boolean;
 
   public aplicativosLabel: Label[];
   public aplicativosChartType: ChartType = 'bar';
   public aplicativosChartLegend = true;
   public aplicativosChartData: ChartDataSets[];
-  private aplicativosGrafico: boolean;
+  public aplicativosGrafico: boolean;
 
   public idiomasLabel: Label[];
   public idiomasChartType: ChartType = 'bar';
   public idiomasChartLegend = true;
   public idiomasChartData: ChartDataSets[];
-  private idiomasGrafico: boolean;
+  public idiomasGrafico: boolean;
 
   public estudeiLabel: Label[];
   public estudeiChartType: ChartType = 'bar';
   public estudeiChartLegend = true;
   public estudeiChartData: ChartDataSets[];
-  private estudeiGrafico: boolean;
+  public estudeiGrafico: boolean;
 
   public idadeLabel: Label[];
   public idadeChartType: ChartType = 'bar';
   public idadeChartLegend = true;
   public idadeChartData: ChartDataSets[];
-  private idadeGrafico: boolean;
+  public idadeGrafico: boolean;
 
-  constructor(private element: ElementRef) {
+  constructor(public element: ElementRef) {
   }
 
   file: File;
