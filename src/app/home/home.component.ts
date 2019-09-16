@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: {xAxes: [{}], yAxes: [{ticks: {beginAtZero: true, suggestedMin: 0, fontSize: 20}}]},
+    scales: {xAxes: [{}], yAxes: [{ticks: {beginAtZero: true, suggestedMin: 0}}]},
     plugins: {
       datalabels: {
         anchor: 'end',
