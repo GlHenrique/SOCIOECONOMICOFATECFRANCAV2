@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UiCookie} from 'ng-smn-ui';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   itemModel: any;
   list: Array<any>;
 
-  constructor() {
+  constructor(private router: Router) {
     this.itemModel = {
       name: 'name'
     };
@@ -24,15 +25,6 @@ export class AppComponent implements OnInit {
         url: '/',
         icon: {
           material: 'home'
-        }
-      },
-      {
-        id: 'autor',
-        parentId: null,
-        name: 'Autor',
-        url: 'http://github.com/GlHenrique',
-        icon: {
-          material: 'people_alt'
         }
       }
     ];

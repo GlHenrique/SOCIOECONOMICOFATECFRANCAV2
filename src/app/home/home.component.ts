@@ -16,11 +16,8 @@ export class HomeComponent implements OnInit {
   upload = true;
   upload1 = false;
   idade: any;
-
-
   list: Array<any>;
   list2: Array<any>;
-
 
   files: any = [];
   quemestudouFatecTabela: boolean;
