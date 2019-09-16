@@ -1328,10 +1328,10 @@ export class HomeComponent implements OnInit {
           {data: [this.maeNuncaEstudouENaoSabeLer], label: 'Não sabe ler e escrever'},
           {data: [this.maeNuncaEstudouMasSabeLer], label: 'Sabe ler e escrever'},
           {data: [this.maePrimarioIncompleto], label: 'Primário incompleto'},
-          {data: [this.maePrimarioCompletoGinasialIncompleto], label: 'Primário completo/ginasial incompleto'},
+          {data: [this.maePrimarioCompletoGinasialIncompleto], label: 'Primário completo/ginasial incompleto', backgroundColor: 'blue'},
           {data: [this.maeGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto'},
           {data: [this.maeColegialCompleto], label: 'Colegial completo'},
-          {data: [this.maeUniversitarioIncompleto], label: 'Universitário incompleto'},
+          {data: [this.maeUniversitarioIncompleto], label: 'Universitário incompleto', backgroundColor: 'yellow'},
           {data: [this.maeUniversitarioCompleto], label: 'Universitário Completo'}
         ];
         this.escolaridadeMaeGrafico = true;

@@ -34,7 +34,6 @@ ui-card {
 
 .align {
   margin-top: 10%;
-
 }
 
 
@@ -47,8 +46,32 @@ ui-card {
   }
 }
 
-canvas {
-  word-break: break-all;
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #7b1fa2;
+  color: white;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#git-glenio:link {
+  color: blue;
+}
+
+#git-glenio:visited {
+  color: white;
+}
+
+#git-glenio:hover {
+  color: green;
+}
+
+#git-glenio:active {
+  color: red;
 }
 
 
