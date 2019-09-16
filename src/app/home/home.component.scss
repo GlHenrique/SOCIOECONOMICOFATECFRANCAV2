@@ -33,70 +33,27 @@ ui-card {
 }
 
 .align {
-  width: 50%;
   margin-top: 10%;
-  justify-content: center;
-  display: flex;
-  margin-left: 20%;
+
 }
 
 
-.uploadfilecontainer {
-  background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: center;
-  height: 200px;
-  width: 80%;
-  margin: 20px auto;
-  border: 2px dashed #1C8ADB;
-  border-radius: 10px;
-}
-
-.uploadfilecontainer:hover {
-  cursor: pointer;
-  background-color: #9ecbec !important;
-  opacity: 0.8;
-}
-
-.files-list {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 10px auto;
-  background: #ffffff;
-  border: 1px dashed;
-  border-radius: 12px;
-  padding: 5px;
-  color: #1c8adb;
-}
-
-.files-list .delete-file {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.files-list .delete-file img {
-  width: 30px;
-}
-
-@import "~ng-smn-ui/lib/core/variables";
-:host {
-  ui-card {
-    position: relative;
-  }
-  ui-toolbar {
-    .title {
-      transition: opacity 280ms ui-easing('deceleration'),
-      transform 280ms ui-easing('deceleration');
-
-      &.hide {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-    }
+@media(min-width: 790px) {
+  .align {
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    margin-left: 20%;
   }
 }
+
+canvas {
+  word-break: break-all;
+}
+
+
+
+
 
 
 

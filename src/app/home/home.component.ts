@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
 
   public barChartOptions: ChartOptions = {
-    responsive: false,
+    responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
     scales: {xAxes: [{}], yAxes: [{ticks: {beginAtZero: true, suggestedMin: 0}}]},
     plugins: {
@@ -1269,7 +1269,7 @@ export class HomeComponent implements OnInit {
         this.quemMoraGrafico = true;
 
 
-        this.quantasPessoasMoramLabel = ['Quantas pessoas compõem seu núcleo familiar, incluindo você?'];
+        this.quantasPessoasMoramLabel = ['Quantas compõem seu núcleo familiar'];
         this.quantasPessoasMoramChartData = [
           {data: [this.umaPessoa], label: '1 pessoa'},
           {data: [this.duasPessoas], label: '2 pessoas'},
@@ -1281,7 +1281,7 @@ export class HomeComponent implements OnInit {
         this.quantasPessoasMoramGrafico = true;
 
 
-        this.quantasPessoasExercemLabel = ['Quantas pessoas exercem atividade remunerada, incluindo você?'];
+        this.quantasPessoasExercemLabel = ['Quantas têm atividade remunerada'];
         this.quantasPessoasExercemChartData = [
           {data: [this.umaPessoaExercem], label: '1 pessoa'},
           {data: [this.duasPessoaExercem], label: '2 pessoas'},
@@ -1325,11 +1325,11 @@ export class HomeComponent implements OnInit {
 
         this.escolaridadeMaeLabel = ['Nível de escolaridade da mãe'];
         this.escolaridadeMaeChartData = [
-          {data: [this.maeNuncaEstudouENaoSabeLer], label: 'Nunca estudou e não sabe ler e escrever'},
-          {data: [this.maeNuncaEstudouMasSabeLer], label: 'Nunca estudou, mas sabe ler e escrever'},
+          {data: [this.maeNuncaEstudouENaoSabeLer], label: 'Não sabe ler e escrever'},
+          {data: [this.maeNuncaEstudouMasSabeLer], label: 'Sabe ler e escrever'},
           {data: [this.maePrimarioIncompleto], label: 'Primário incompleto'},
           {data: [this.maePrimarioCompletoGinasialIncompleto], label: 'Primário completo/ginasial incompleto'},
-          {data: [this.maeGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto\n'},
+          {data: [this.maeGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto'},
           {data: [this.maeColegialCompleto], label: 'Colegial completo'},
           {data: [this.maeUniversitarioIncompleto], label: 'Universitário incompleto'},
           {data: [this.maeUniversitarioCompleto], label: 'Universitário Completo'}
@@ -1338,11 +1338,11 @@ export class HomeComponent implements OnInit {
 
         this.escolaridadePaiLabel = ['Nível de escolaridade do pai'];
         this.escolaridadePaiChartData = [
-          {data: [this.paiNuncaEstudouENaoSabeLer], label: 'Nunca estudou e não sabe ler e escrever'},
-          {data: [this.paiNuncaEstudouMasSabeLer], label: 'Nunca estudou, mas sabe ler e escrever'},
+          {data: [this.paiNuncaEstudouENaoSabeLer], label: 'Não sabe ler e escrever'},
+          {data: [this.paiNuncaEstudouMasSabeLer], label: 'Sabe ler e escrever'},
           {data: [this.paiPrimarioIncompleto], label: 'Primário incompleto'},
           {data: [this.paiPrimarioCompletoGinasialIncompleto], label: 'Primário completo/ginasial incompleto'},
-          {data: [this.paiGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto\n'},
+          {data: [this.paiGinasialCompletoColegialIncompleto], label: 'Ginasial completo/colegial incompleto'},
           {data: [this.paiColegialCompleto], label: 'Colegial completo'},
           {data: [this.paiUniversitarioIncompleto], label: 'Universitário incompleto'},
           {data: [this.paiUniversitarioCompleto], label: 'Universitário Completo'}
